@@ -1,0 +1,3 @@
+launches the MLflow UI with SQLite as the backend store, enabling users to interact with MLflow's experiment tracking capabilities through a web interface.
+
+mlflow ui --backend-store-uri sqlite:///mlflow.db
