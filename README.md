@@ -16,3 +16,8 @@ Youtube : [playlist](https://youtube.com/playlist?list=PL3MmuxUbc_hIUISrluw_A7wD
 ## Week 2 (Experiment tracking and model management)
 
 [Mlflow Solution](week2/Homework_week2_mlflow.md)
+
+[W&B Solution](week2/homework-wandb/wandb_homework_soln.md)
+
+
+## Week 3 (Orchestration and ML Pipelines)
