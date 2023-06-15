@@ -1,0 +1,54 @@
+{
+    "os": "Linux-5.15.0-1039-azure-x86_64-with-glibc2.31",
+    "python": "3.10.8",
+    "heartbeatAt": "2023-06-15T16:14:09.442543",
+    "startedAt": "2023-06-15T16:14:08.738861",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--wandb_project",
+        "WANDB_mlops_week2",
+        "--wandb_entity",
+        "manthanx",
+        "--data_artifact",
+        "manthanx/WANDB_mlops_week2/NYC-Taxi:v0"
+    ],
+    "state": "running",
+    "program": "/workspaces/mlops_Zoomcamp_2023/week2/homework-wandb/sweep.py",
+    "codePath": "week2/homework-wandb/sweep.py",
+    "git": {
+        "remote": "https://github.com/ManthanShettigar/mlops_Zoomcamp_2023",
+        "commit": "02d896dc7541e97ff32e66e28ec6ec4a44c4f179"
+    },
+    "email": "63723893+ManthanShettigar@users.noreply.github.com",
+    "root": "/workspaces/mlops_Zoomcamp_2023",
+    "host": "codespaces-06c31e",
+    "username": "codespace",
+    "executable": "/home/codespace/.python/current/bin/python",
+    "cpu_count": 1,
+    "cpu_count_logical": 2,
+    "cpu_freq": {
+        "current": 2593.906,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2593.906,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2593.906,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "total": 31.32598876953125,
+        "used": 13.649818420410156
+    },
+    "memory": {
+        "total": 3.8339385986328125
+    }
+}
