@@ -1,0 +1,56 @@
+{
+    "os": "Linux-5.15.0-1039-azure-x86_64-with-glibc2.31",
+    "python": "3.10.8",
+    "heartbeatAt": "2023-06-15T15:33:09.388960",
+    "startedAt": "2023-06-15T15:33:08.671774",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--wandb_project",
+        "WANDB_mlops_week2",
+        "--wandb_entity",
+        "manthanx",
+        "--raw_data_path",
+        "./data",
+        "--dest_path",
+        "./wandb_output"
+    ],
+    "state": "running",
+    "program": "/workspaces/mlops_Zoomcamp_2023/week2/homework-wandb/preprocess_data.py",
+    "codePath": "week2/homework-wandb/preprocess_data.py",
+    "git": {
+        "remote": "https://github.com/ManthanShettigar/mlops_Zoomcamp_2023",
+        "commit": "e05a1ceb5d784c85d9a96ea15ef214275eadfd59"
+    },
+    "email": "63723893+ManthanShettigar@users.noreply.github.com",
+    "root": "/workspaces/mlops_Zoomcamp_2023",
+    "host": "codespaces-06c31e",
+    "username": "codespace",
+    "executable": "/home/codespace/.python/current/bin/python",
+    "cpu_count": 1,
+    "cpu_count_logical": 2,
+    "cpu_freq": {
+        "current": 2593.906,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2593.906,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2593.906,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "total": 31.32598876953125,
+        "used": 13.619407653808594
+    },
+    "memory": {
+        "total": 3.8339385986328125
+    }
+}
