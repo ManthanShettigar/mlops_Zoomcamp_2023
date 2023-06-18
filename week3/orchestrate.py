@@ -9,7 +9,7 @@ from sklearn.metrics import mean_squared_error
 import mlflow
 import xgboost as xgb
 from prefect import flow, task
-
+from prefect.artifacts import create_markdown_artifact
 
 @task(retries=3, retry_delay_seconds=2,name='read taxi data')
 def read_data(filename: str) -> pd.DataFrame:
@@ -106,13 +106,32 @@ def train_best_model(
         mlflow.log_artifact("models/preprocessor.b", artifact_path="preprocessor")
 
         mlflow.xgboost.log_model(booster, artifact_path="models_mlflow")
+
+        markdown__rmse_report = f"""# RMSE Report
+
+        ## Summary
+
+        Duration Prediction 
+
+        ## RMSE XGBoost Model
+
+        | Region    | RMSE |
+        |:----------|-------:|
+        | {date.today()} | {rmse:.2f} |
+        """
+
+        create_markdown_artifact(
+            key="week3-homework-model-report", markdown=markdown__rmse_report
+        )
+
+
     return None
 
 
 @flow
 def main_flow(
-    train_path: str = "./data/green_tripdata_2021-01.parquet",
-    val_path: str = "./data/green_tripdata_2021-02.parquet",
+    train_path: str = "./week3/data/green_tripdata_2023-02.parquet", #febraury data
+    val_path: str = "./week3/data/green_tripdata_2023-03.parquet", # march data
 ) -> None:
     """The main training pipeline"""
 
