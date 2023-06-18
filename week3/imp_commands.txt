@@ -1,0 +1,24 @@
+# 3.4
+
+prefect server start 
+
+prefect cloud login 
+ 
+prefect project init
+ 
+ 
+prefect worker start -p zoompool -t process 
+ 
+
+prefect deploy 03-orchestration/3.4/orchestrate.py:main_flow -n taxi1 -p zoompool
+
+
+
+# 3.5
+
+prefect block type ls 
+
+
+prefect deploy --all
+
+prefect deployment set-schedule main_flow/taxi1 --inteval 120 
