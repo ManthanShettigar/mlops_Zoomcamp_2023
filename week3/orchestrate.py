@@ -11,21 +11,6 @@ import xgboost as xgb
 from prefect import flow, task
 from prefect.artifacts import create_markdown_artifact
 from datetime import date
-from prefect_email import EmailServerCredentials
-
-
-
-@flow
-def example_email_send_message_flow(email_addresses: List[str]):
-    email_server_credentials = EmailServerCredentials.load("prefectmail")
-    for email_address in email_addresses:
-        subject = email_send_message.with_options(name=f"email {email_address}").submit(
-            email_server_credentials=email_server_credentials,
-            subject="Example Flow Notification using Gmail",
-            msg="This proves email_send_message works!",
-            email_to=email_address,
-        )
-
 
 
 
@@ -170,4 +155,3 @@ def main_flow(
 
 if __name__ == "__main__":
     main_flow()
-    example_email_send_message_flow(["shettigarshreenivas1@gmail.com"])
