@@ -21,3 +21,5 @@ Youtube : [playlist](https://youtube.com/playlist?list=PL3MmuxUbc_hIUISrluw_A7wD
 
 
 ## Week 3 (Orchestration and ML Pipelines)
+
+[Prefect Solution](week3/screenshot_soln/week3_hw.md)

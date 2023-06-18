@@ -34,3 +34,5 @@ prefect worker start -p week3pool -t process
 prefect deploy week3/orchestrate.py:main_flow -n week3homework -p week3pool
 
 prefect deployment set-schedule main-flow/week3homework --cron "0 9 3 * *" 
+
+prefect block register -m prefect_aws    
