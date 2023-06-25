@@ -9,5 +9,6 @@ pipenv install gunicorn
 
 gunicorn --bind=0.0.0.0.0:9696 predict:app
 
-
+docker build -t mlops-zoomcamp-model:v1 .
+docker run -it   mlops-zoomcamp-model:v1 2022 04
 
