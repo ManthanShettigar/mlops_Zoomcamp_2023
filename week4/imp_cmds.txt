@@ -5,5 +5,9 @@ pipenv install scikit-learn==1.2.2 flask
 
 pipenv shell
 
+pipenv install gunicorn
+
+gunicorn --bind=0.0.0.0.0:9696 predict:app
+
 
 
