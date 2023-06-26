@@ -16,6 +16,8 @@ COPY [ "starter.py","./" ]
 
 ENTRYPOINT [ "python", "starter.py" ]
 
+# ENTRYPOINT ["/bin/bash"]
+
 
 #docker build -t mlops-zoomcamp-model:v1 .
 #docker run -it   mlops-zoomcamp-model:v1 2022 04
