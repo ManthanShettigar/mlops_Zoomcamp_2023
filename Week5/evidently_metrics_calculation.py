@@ -13,30 +13,32 @@ from prefect import task, flow
 
 from evidently.report import Report
 from evidently import ColumnMapping
-from evidently.metrics import ColumnDriftMetric, DatasetDriftMetric, DatasetMissingValuesMetric
+from evidently.metrics import ColumnDriftMetric, DatasetDriftMetric, DatasetMissingValuesMetric ,ColumnQuantileMetric
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s]: %(message)s")
 
 SEND_TIMEOUT = 10
 rand = random.Random()
 
+# added column_Quantile in create table
 create_table_statement = """
 drop table if exists dummy_metrics;
 create table dummy_metrics(
 	timestamp timestamp,
 	prediction_drift float,
 	num_drifted_columns integer,
-	share_missing_values float
-)
+	share_missing_values float,
+	column_quantile float 
+) 
 """
 
 reference_data = pd.read_parquet('data/reference.parquet')
 with open('models/lin_reg.bin', 'rb') as f_in:
 	model = joblib.load(f_in)
 
-raw_data = pd.read_parquet('data/green_tripdata_2022-02.parquet')
+raw_data = pd.read_parquet('data/green_tripdata_2023-03.parquet')
 
-begin = datetime.datetime(2022, 2, 1, 0, 0)
+begin = datetime.datetime(2023, 3, 1, 0, 0) #march
 num_features = ['passenger_count', 'trip_distance', 'fare_amount', 'total_amount']
 cat_features = ['PULocationID', 'DOLocationID']
 
@@ -50,7 +52,8 @@ column_mapping = ColumnMapping(
 report = Report(metrics = [
     ColumnDriftMetric(column_name='prediction'),
     DatasetDriftMetric(),
-    DatasetMissingValuesMetric()
+    DatasetMissingValuesMetric(),
+	ColumnQuantileMetric(column_name='fare_amount', quantile=0.5) #changes
 ])
 
 @task(retries=2, retry_delay_seconds=5, name="create database and table")
@@ -78,11 +81,11 @@ def calculate_metrics_postgresql(curr, i):
 	prediction_drift = result['metrics'][0]['result']['drift_score']
 	num_drifted_columns = result['metrics'][1]['result']['number_of_drifted_columns']
 	share_missing_values = result['metrics'][2]['result']['current']['share_of_missing_values']
-	column_quantile = result['metrics'][3]['result']['current']['value']
+	column_quantile = result['metrics'][3]['result']['current']['value'] #changes
 
 	curr.execute(
-		"insert into dummy_metrics(timestamp, prediction_drift, num_drifted_columns, share_missing_values ,column_quantile) values (%s, %s, %s, %s,%s)",
-		(begin + datetime.timedelta(i), prediction_drift, num_drifted_columns, share_missing_values,column_quantile)
+		"insert into dummy_metrics(timestamp, prediction_drift, num_drifted_columns, share_missing_values ,column_quantile) values (%s, %s, %s, %s,%s)", #changes
+		(begin + datetime.timedelta(i), prediction_drift, num_drifted_columns, share_missing_values,column_quantile) #changes
 	)
 
 @flow
@@ -90,7 +93,7 @@ def batch_monitoring_backfill():
 	prep_db()
 	last_send = datetime.datetime.now() - datetime.timedelta(seconds=10)
 	with psycopg.connect("host=localhost port=5432 dbname=test user=postgres password=example", autocommit=True) as conn:
-		for i in range(0, 31):
+		for i in range(0, 31): #changes
 			with conn.cursor() as curr:
 				calculate_metrics_postgresql(curr, i)
 
