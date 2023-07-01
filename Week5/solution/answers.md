@@ -16,6 +16,8 @@ What is the shape of the downloaded data? How many rows are there?
 * 54396
 
 
+![Alt text](q1.png)
+
 ## Q2. Metric
 
 Let's expand the number of data quality metrics we’d like to monitor! Please add one metric of your choice and a quantile value for the `"fare_amount"` column (`quantile=0.5`).
@@ -25,7 +27,9 @@ Hint: explore evidently metric `ColumnQuantileMetric` (from `evidently.metrics i
 What metric did you choose?
 
 
+![Alt text](q2_1.png)
 
+![Alt text](q2_2.png)
 ## Q3. Prefect flow 
 
 Let’s update prefect tasks by giving them nice meaningful names, specifying a number of delays and retries.
@@ -40,6 +44,7 @@ What is the correct way of doing that?
 * `@task(retries=2, retry_delay_seconds=5, name="calculate metrics")`
 
 
+![Alt text](q3.png)
 
 ## Q4. Monitoring
 
@@ -53,6 +58,9 @@ What is the maximum value of metric `quantile = 0.5` on th `"fare_amount"` colum
 * 14.8
 
 
+
+![Alt text](q4.png)
+![Alt text](q4_1.png)
 ## Q5. Dashboard
 
 
@@ -66,15 +74,6 @@ Where to place a dashboard config file?
 * `project_folder/data`  (05-monitoring/data)
 
 
-## Submit the results
+![Alt text](q5.png)
 
-* Submit your results here: https://forms.gle/PJaYeWsnWShAEBF79
-* You can submit your solution multiple times. In this case, only the last submission will be used
-* If your answer doesn't match options exactly, select the closest one
-
-
-## Deadline
-
-The deadline for submitting is 7 July (Friday), 23:00 CEST (Berlin time). 
-
-After that, the form will be closed.
+![Alt text](q5_1.png)

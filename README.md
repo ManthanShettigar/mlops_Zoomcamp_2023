@@ -31,3 +31,6 @@ Youtube : [playlist](https://youtube.com/playlist?list=PL3MmuxUbc_hIUISrluw_A7wD
 
 
 ## Week 5 (Model Monitoring)
+
+[Monitoring Grafana & Evidently Solution](week5/solution/answers.md)
+
