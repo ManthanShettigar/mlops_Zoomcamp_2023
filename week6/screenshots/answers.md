@@ -46,7 +46,7 @@ The second file will be `__init__.py`. So, why do we need this second file?
 
 - To define a package and specify its boundaries
 - To manage the import of modules from the package 
-**- Both of the above options are correct**
+- **Both of the above options are correct**
 - To initialize a new object
 
 
@@ -102,7 +102,7 @@ How many rows should be there in the expected dataframe?
 
 - 1
 - 2
-- 3
+- **3**
 - 4
 
 Solution : [tests/test_batch.py](../tests/test_batch.py)
@@ -204,7 +204,7 @@ Let's modify our `read_data` function:
 - otherwise use the usual way
 
 
-question 4 setup : [batch_q4.py](../batch_q4.py)
+**question 4 setup** : [batch_q4.py](../batch_q4.py)
 
 ## Q5. Creating test data
 
@@ -233,7 +233,7 @@ df_input.to_parquet(
 
 What's the size of the file?
 
-**- 3667**
+- **3667**
 - 23667
 - 43667
 - 63667
@@ -268,7 +268,7 @@ verify the result is correct.
 What's the sum of predicted durations for the test dataframe?
 
 - 10.50
-- 31.51
+- **31.51**
 - 59.28
 - 81.22
 

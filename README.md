@@ -34,3 +34,6 @@ Youtube : [playlist](https://youtube.com/playlist?list=PL3MmuxUbc_hIUISrluw_A7wD
 
 [Monitoring Grafana & Evidently Solution](week5/solution/answers.md)
 
+## Week 6 (Best Practices)
+
+[Unit Tests and Integration-Tests Solution](week6/screenshots/answers.md)
